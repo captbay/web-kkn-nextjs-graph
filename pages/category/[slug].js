@@ -14,7 +14,7 @@ const CategoryPost = ({ posts }) => {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10; // Number of posts to display per page
+  const postsPerPage = 5; // Number of posts to display per page
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -41,7 +41,7 @@ const CategoryPost = ({ posts }) => {
                     onClick={() => handlePageChange(i + 1)}
                     className={`m-2 px-5 py-2 rounded-md ${
                       currentPage === i + 1
-                        ? "bg-blue-500 text-white"
+                        ? "bg-green-800 text-white"
                         : "bg-gray-200 text-gray-700"
                     }`}
                   >
