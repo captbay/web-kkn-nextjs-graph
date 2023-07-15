@@ -16,43 +16,67 @@ export default function Home({ posts }) {
     setCurrentPage(pageNumber);
   };
 
-  return (
-    <div className="container mx-auto px-10 mb-8">
-      <FeaturedPosts />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 col-span-1">
-          {currentPosts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
-          ))}
-          <div className="lg:col-span-12 col-span-1">
-            <div className="flex justify-center">
-              <nav className="inline-flex rounded-md shadow">
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handlePageChange(i + 1)}
-                    className={`m-2 px-5 py-2 rounded-md ${
-                      currentPage === i + 1
-                        ? "bg-green-800 text-white"
-                        : "bg-gray-200 text-gray-700"
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-              </nav>
+  if (totalPages == 0) {
+    return (
+      <div className="container mx-auto px-10 h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-8 col-span-1">
+            <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
+              <div className="flex justify-center">
+                <h1 className="text-2xl font-bold text-gray-800">
+                  No posts found
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-4 col-span-1">
+            <div className="lg:sticky relative top-8">
+              <PostWidget />
+              <Categories />
             </div>
           </div>
         </div>
-        <div className="lg:col-span-4 col-span-1">
-          <div className="lg:sticky relative top-8">
-            <PostWidget />
-            <Categories />
+      </div>
+    );
+  } else {
+    return (
+      <div className="container mx-auto px-10 mb-8">
+        <FeaturedPosts />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-8 col-span-1">
+            {currentPosts.map((post, index) => (
+              <PostCard key={index} post={post.node} />
+            ))}
+            <div className="lg:col-span-12 col-span-1">
+              <div className="flex justify-center">
+                <nav className="inline-flex rounded-md shadow">
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handlePageChange(i + 1)}
+                      className={`m-2 px-5 py-2 rounded-md ${
+                        currentPage === i + 1
+                          ? "bg-green-800 text-white"
+                          : "bg-gray-200 text-gray-700"
+                      }`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-4 col-span-1">
+            <div className="lg:sticky relative top-8">
+              <PostWidget />
+              <Categories />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 // Fetch data at build time
