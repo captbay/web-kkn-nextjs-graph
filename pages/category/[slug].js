@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import { getCategories, getCategoryPost } from "../../services";
-import { PostCard, Categories, Loader } from "../../components";
+import { PostCard, Categories, Loader, TheGod } from "../../components";
 
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ const CategoryPost = ({ posts }) => {
 
   if (totalPages == 0) {
     return (
-      <div className="container mx-auto px-10 h-screen">
+      <div className="container mx-auto px-10 h-max mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
             <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8 h-full">
@@ -56,6 +56,7 @@ const CategoryPost = ({ posts }) => {
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
               <Categories />
+              <TheGod />
             </div>
           </div>
         </div>
@@ -92,6 +93,7 @@ const CategoryPost = ({ posts }) => {
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
               <Categories />
+              <TheGod />
             </div>
           </div>
         </div>

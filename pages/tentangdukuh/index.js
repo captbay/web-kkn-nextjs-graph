@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-import { Loader } from "../../components";
+import { Loader, TheGod } from "../../components";
 
 import { grpahCMSImageLoader } from "../../util";
 import Image from "next/image";
@@ -14,7 +14,7 @@ const PostDetails = ({}) => {
   }
 
   return (
-    <div className="container mx-auto px-10 h-screen">
+    <div className="container mx-auto px-10 h-max mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8 h-full">
@@ -41,7 +41,7 @@ const PostDetails = ({}) => {
           <div className="lg:sticky relative top-8">
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
               <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-                Categories
+                Peta Padukuhan
               </h3>
               {/* {categories.map((category, index) => (
                 <Link key={index} href={`/category/${category.slug}`}>
@@ -57,6 +57,7 @@ const PostDetails = ({}) => {
                 </Link>
               ))} */}
             </div>
+            <TheGod />
           </div>
         </div>
       </div>

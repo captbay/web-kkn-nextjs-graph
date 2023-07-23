@@ -1,5 +1,5 @@
 import { FeaturedPosts } from "../sections/index";
-import { PostCard, Categories, PostWidget } from "../components";
+import { PostCard, Categories, PostWidget, TheGod } from "../components";
 import { getPosts } from "../services";
 import { useState } from "react";
 
@@ -18,14 +18,26 @@ export default function Home({ posts }) {
 
   if (totalPages == 0) {
     return (
-      <div className="container mx-auto px-10 h-screen">
+      <div className="container mx-auto px-10 h-max">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
-            <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
-              <div className="flex justify-center">
-                <h1 className="text-2xl font-bold text-gray-800">
-                  No posts found
-                </h1>
+            <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8 h-full">
+              <div className="flex justify-center items-center h-full flex-col">
+                <div>
+                  <Image
+                    unoptimized
+                    loader={grpahCMSImageLoader}
+                    alt="404"
+                    height={300}
+                    width={300}
+                    src="/404.jpg"
+                  ></Image>
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-800">
+                    No posts found
+                  </h1>
+                </div>
               </div>
             </div>
           </div>
@@ -33,6 +45,7 @@ export default function Home({ posts }) {
             <div className="lg:sticky relative top-8">
               <PostWidget />
               <Categories />
+              <TheGod />
             </div>
           </div>
         </div>
@@ -71,6 +84,7 @@ export default function Home({ posts }) {
             <div className="lg:sticky relative top-8">
               <PostWidget />
               <Categories />
+              <TheGod />
             </div>
           </div>
         </div>
