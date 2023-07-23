@@ -16,22 +16,30 @@ const TheGod = () => {
         height={300}
         width={300}
         src="/20201123_151646_0000.png"
-        className="rounded-lg"
+        className="rounded-lg mx-auto"
       ></Image>
       <div>
-        <p className="text-xl mb-2 font-semibold border-b p-4">
+        <p className="text-xl mb-2 font-semibold border-b p-4 text-center">
           I Putu Agestya Pramana
         </p>
         <div className="cursor-pointer block pb-2">
           <Link href="https://www.instagram.com/agespramana_" target="_blank">
-            <img className="w-8 inline-block" src="/icons8-instagram.svg" />
+            <img
+              className="w-8 inline-block"
+              src="/icons8-instagram.svg"
+              alt="Instagram"
+            />
             agespramana_
           </Link>
         </div>
         <div className="cursor-pointer block">
           <Link href="https://www.linkedin.com/in/agespramana" target="_blank">
-            <img className="w-8 inline-block" src="/icons8-linkedin.svg" />I
-            Putu Agestya Pramana
+            <img
+              className="w-8 inline-block"
+              src="/icons8-linkedin.svg"
+              alt="Linkedin"
+            />
+            I Putu Agestya Pramana
           </Link>
         </div>
       </div>
