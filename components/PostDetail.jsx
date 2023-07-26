@@ -55,6 +55,16 @@ const PostDetail = ({ post }) => {
             src={obj.src}
           />
         );
+      case "video":
+        return (
+          <video
+            key={index}
+            controls
+            height={obj.height}
+            width={obj.width}
+            src={obj.src}
+          />
+        );
       default:
         return modifiedText;
     }
